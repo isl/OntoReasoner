@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>gr.forth.ics.isl</groupId>
-    <artifactId>rdfreasoner</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>Reasoner</artifactId>
+    <version>3.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
