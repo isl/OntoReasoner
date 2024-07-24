@@ -1,0 +1,76 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:pref="http://users.ics.forth.gr/~marketak/rdf/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:viaf="https://viaf.org/viaf/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <crm:E4_Period rdf:about="urn:uuid:a746d207-6028-4a0a-8420-b7b401d1e92e"/>
+  <crm:E65_Creation rdf:about="http://users.ics.forth.gr/~marketak/rdf/creation/1234">
+    <crm:P14_carried_out_by>
+      <crm:E17_Type_Assignment rdf:about="http://users.ics.forth.gr/~marketak/rdf/person/85689854">
+        <crm:P132_spatiotemporally_overlaps_with>
+          <crm:E4_Period rdf:about="urn:uuid:4e8d17cf-ecad-4083-bdc5-68d83afa07dd"/>
+        </crm:P132_spatiotemporally_overlaps_with>
+        <crm:P1_is_identified_by>
+          <crm:E42_Identifier rdf:about="https://viaf.org/viaf/85689854">
+            <rdfs:label>viaf:  85689854</rdfs:label>
+          </crm:E42_Identifier>
+        </crm:P1_is_identified_by>
+        <rdfs:label>Winston Churchill</rdfs:label>
+        <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+      </crm:E17_Type_Assignment>
+    </crm:P14_carried_out_by>
+    <crm:P7_took_place_at>
+      <crm:E53_Place rdf:about="http://users.ics.forth.gr/~marketak/rdf/location/Yalta">
+        <rdfs:label>Yalta</rdfs:label>
+      </crm:E53_Place>
+    </crm:P7_took_place_at>
+    <crm:P4_has_time-span>
+      <crm:E52_Time-Span rdf:about="http://users.ics.forth.gr/~marketak/rdf/date/02%20November%201941">
+        <rdfs:label>02 November 1941</rdfs:label>
+      </crm:E52_Time-Span>
+    </crm:P4_has_time-span>
+    <crm:P94_has_created>
+      <crm:E31_Document rdf:about="http://users.ics.forth.gr/~marketak/rdf/doc/Protocols%20of%20Proceedings%20of%20Crimea%20Conference">
+        <rdfs:label>Protocols of Proceedings of Crimea Conference</rdfs:label>
+      </crm:E31_Document>
+    </crm:P94_has_created>
+    <rdfs:label>Creation of Protocols of Proceedings of Crimea Conference</rdfs:label>
+  </crm:E65_Creation>
+  <crm:E65_Creation rdf:about="http://users.ics.forth.gr/~marketak/rdf/creation/5678">
+    <crm:P14_carried_out_by>
+      <crm:E17_Type_Assignment rdf:about="http://users.ics.forth.gr/~marketak/rdf/person/85312226">
+        <crm:P132_spatiotemporally_overlaps_with>
+          <crm:E4_Period rdf:about="urn:uuid:ee4ba264-75f3-4258-af97-4defcb37f65f"/>
+        </crm:P132_spatiotemporally_overlaps_with>
+        <crm:P1_is_identified_by>
+          <crm:E42_Identifier rdf:about="https://viaf.org/viaf/85312226">
+            <rdfs:label>viaf:  85312226</rdfs:label>
+          </crm:E42_Identifier>
+        </crm:P1_is_identified_by>
+        <rdfs:label>Tim Berners-Lee</rdfs:label>
+        <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+      </crm:E17_Type_Assignment>
+    </crm:P14_carried_out_by>
+    <crm:P7_took_place_at>
+      <crm:E53_Place rdf:about="http://users.ics.forth.gr/~marketak/rdf/location/Switzerland">
+        <rdfs:label>Switzerland</rdfs:label>
+      </crm:E53_Place>
+    </crm:P7_took_place_at>
+    <crm:P4_has_time-span>
+      <crm:E52_Time-Span rdf:about="http://users.ics.forth.gr/~marketak/rdf/date/01%20March%201989">
+        <rdfs:label>01 March 1989</rdfs:label>
+      </crm:E52_Time-Span>
+    </crm:P4_has_time-span>
+    <crm:P94_has_created>
+      <crm:E31_Document rdf:about="http://users.ics.forth.gr/~marketak/rdf/doc/Information%20Management%3A%20A%20Proposal">
+        <rdfs:label>Information Management: A Proposal</rdfs:label>
+      </crm:E31_Document>
+    </crm:P94_has_created>
+    <rdfs:label>Creation of Information Management: A Proposal</rdfs:label>
+  </crm:E65_Creation>
+  <crm:E4_Period rdf:about="urn:uuid:c21a4a61-655b-416b-979a-98d0b5c6ecd2"/>
+</rdf:RDF>

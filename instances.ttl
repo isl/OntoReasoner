@@ -1,0 +1,81 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix pref:  <http://users.ics.forth.gr/~marketak/rdf/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix viaf:  <https://viaf.org/viaf/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<http://users.ics.forth.gr/~marketak/rdf/date/02%20November%201941>
+        a           crm:E52_Time-Span ;
+        rdfs:label  "02 November 1941" .
+
+<urn:uuid:58f3052d-b5d5-4f4a-9f93-a34bdec2d33f>
+        a       crm:E4_Period .
+
+<http://users.ics.forth.gr/~marketak/rdf/doc/Information%20Management%3A%20A%20Proposal>
+        a           crm:E31_Document ;
+        rdfs:label  "Information Management: A Proposal" .
+
+<http://users.ics.forth.gr/~marketak/rdf/date/01%20March%201989>
+        a           crm:E52_Time-Span ;
+        rdfs:label  "01 March 1989" .
+
+viaf:85312226  a    crm:E42_Identifier ;
+        rdfs:label  "viaf:  85312226" .
+
+<http://users.ics.forth.gr/~marketak/rdf/creation/5678>
+        a                       crm:E65_Creation ;
+        rdfs:label              "Creation of Information Management: A Proposal" ;
+        crm:P14_carried_out_by  <http://users.ics.forth.gr/~marketak/rdf/person/85312226> ;
+        crm:P4_has_time-span    <http://users.ics.forth.gr/~marketak/rdf/date/01%20March%201989> ;
+        crm:P7_took_place_at    <http://users.ics.forth.gr/~marketak/rdf/location/Switzerland> ;
+        crm:P94_has_created     <http://users.ics.forth.gr/~marketak/rdf/doc/Information%20Management%3A%20A%20Proposal> .
+
+<http://users.ics.forth.gr/~marketak/rdf/creation/1234>
+        a                       crm:E65_Creation ;
+        rdfs:label              "Creation of Protocols of Proceedings of Crimea Conference" ;
+        crm:P14_carried_out_by  <http://users.ics.forth.gr/~marketak/rdf/person/85689854> ;
+        crm:P4_has_time-span    <http://users.ics.forth.gr/~marketak/rdf/date/02%20November%201941> ;
+        crm:P7_took_place_at    <http://users.ics.forth.gr/~marketak/rdf/location/Yalta> ;
+        crm:P94_has_created     <http://users.ics.forth.gr/~marketak/rdf/doc/Protocols%20of%20Proceedings%20of%20Crimea%20Conference> .
+
+<urn:uuid:09b8dbe1-e15b-4b18-ace4-e45df9e8fbca>
+        a       crm:E4_Period .
+
+<urn:uuid:d80460b2-b3b3-423c-8d15-e2225eae0234>
+        a       crm:E4_Period .
+
+<http://users.ics.forth.gr/~marketak/rdf/person/85689854>
+        a                        crm:E17_Type_Assignment , crm:E39_Actor ;
+        rdfs:label               "Winston Churchill" ;
+        crm:P132_spatiotemporally_overlaps_with
+                <urn:uuid:d80460b2-b3b3-423c-8d15-e2225eae0234> ;
+        crm:P1_is_identified_by  viaf:85689854 .
+
+<urn:uuid:31736421-4789-4fa2-b88f-18a9b4f3f80a>
+        a       crm:E4_Period .
+
+<http://users.ics.forth.gr/~marketak/rdf/person/85312226>
+        a                        crm:E17_Type_Assignment , crm:E39_Actor ;
+        rdfs:label               "Tim Berners-Lee" ;
+        crm:P132_spatiotemporally_overlaps_with
+                <urn:uuid:31736421-4789-4fa2-b88f-18a9b4f3f80a> ;
+        crm:P1_is_identified_by  viaf:85312226 .
+
+<http://users.ics.forth.gr/~marketak/rdf/location/Switzerland>
+        a           crm:E53_Place ;
+        rdfs:label  "Switzerland" .
+
+viaf:85689854  a    crm:E42_Identifier ;
+        rdfs:label  "viaf:  85689854" .
+
+<http://users.ics.forth.gr/~marketak/rdf/doc/Protocols%20of%20Proceedings%20of%20Crimea%20Conference>
+        a           crm:E31_Document ;
+        rdfs:label  "Protocols of Proceedings of Crimea Conference" .
+
+<http://users.ics.forth.gr/~marketak/rdf/location/Yalta>
+        a           crm:E53_Place ;
+        rdfs:label  "Yalta" .
