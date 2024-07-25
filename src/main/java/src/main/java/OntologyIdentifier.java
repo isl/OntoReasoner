@@ -7,10 +7,23 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 
-
+/**
+ * Class for identifying ontologies and checking if a file is an RDF schema.
+ */
 public class OntologyIdentifier {
-    private OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM );
 
+    /**
+     * Ontology model used for reading and manipulating RDF data.
+     */
+    private OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+
+    /**
+     * Retrieves the RDF format based on the given file extension.
+     *
+     * @param extension the file extension
+     * @return the RDF format corresponding to the extension
+     * @throws IllegalArgumentException if the file extension is not supported
+     */
     public String getRdfFormat(String extension) {
         String format = OntologyReasoner.langs.get(extension.toLowerCase());
         if (format == null) {
@@ -19,6 +32,14 @@ public class OntologyIdentifier {
         return format;
     }
 
+    /**
+     * Checks if the given file contents represent an RDF schema.
+     *
+     * @param fileContents the contents of the file
+     * @param extension the file extension
+     * @return true if the file is an RDF schema, false otherwise
+     * @throws IllegalArgumentException if the file extension is not supported
+     */
     public boolean isSchema(String fileContents, String extension) {
         if (!OntologyReasoner.langs.keySet().contains(extension.toLowerCase())) {
             throw new IllegalArgumentException("The given file extension (" + extension + ") is not supported. "
@@ -45,5 +66,4 @@ public class OntologyIdentifier {
         QueryExecution qe = QueryExecutionFactory.create(query, model);
         return qe.execAsk();
     }
-    
 }
