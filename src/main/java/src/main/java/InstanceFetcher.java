@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.jena.ext.com.google.common.collect.ArrayListMultimap;
@@ -28,25 +29,47 @@ import org.apache.jena.vocabulary.RDF;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * Class for fetching instances and their associated classes from an ontology model.
+ */
 public class InstanceFetcher {
-    private static OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM );
+
+    /**
+     * Ontology model used for reading and manipulating RDF data.
+     */
+    private static OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+
+    /**
+     * Logger for logging messages and errors.
+     */
     private static final Logger logger = LoggerFactory.getLogger(InstanceFetcher.class);
 
-    public InstanceFetcher(String fileContents, String extension){
-       if(!OntologyReasoner.langs.keySet().contains(extension.toLowerCase())){
-            throw new IllegalArgumentException("The given file extension ("+extension+") is not supported. "
-                                                   +"The list of accepted file extensions is "+OntologyReasoner.langs.keySet());
+    /**
+     * Constructs an InstanceFetcher and initializes the ontology model with the given file contents and extension.
+     *
+     * @param fileContents the contents of the ontology file as a string
+     * @param extension    the file extension indicating the RDF format
+     * @throws IllegalArgumentException if the given file extension is not supported
+     */
+    public InstanceFetcher(String fileContents, String extension) {
+        if (!OntologyReasoner.langs.keySet().contains(extension.toLowerCase())) {
+            throw new IllegalArgumentException("The given file extension (" + extension + ") is not supported. "
+                    + "The list of accepted file extensions is " + OntologyReasoner.langs.keySet());
         }
-        model.read(new StringReader(fileContents),null,OntologyReasoner.langs.get(extension.toLowerCase()));
+        model.read(new StringReader(fileContents), null, OntologyReasoner.langs.get(extension.toLowerCase()));
     }
 
-    public Collection<String> getClassUris(){
-        Set<String> retCollection=new HashSet<>();
-        String selectQuery="SELECT DISTINCT ?class "
-                          +"WHERE { "
-                            +"?subject <"+RDF.type+"> ?class "
-                          +"}";
+    /**
+     * Retrieves all unique class URIs from the ontology model.
+     *
+     * @return a collection of class URIs
+     */
+    public Collection<String> getClassUris() {
+        Set<String> retCollection = new HashSet<>();
+        String selectQuery = "SELECT DISTINCT ?class "
+                + "WHERE { "
+                + "?subject <" + RDF.type + "> ?class "
+                + "}";
         QueryExecution qe = QueryExecutionFactory.create(selectQuery, this.model);
         ResultSet results = qe.execSelect();
         while (results.hasNext()) {
@@ -56,6 +79,12 @@ public class InstanceFetcher {
         return retCollection;
     }
 
+    /**
+     * Retrieves all instance URIs and their labels for a given class URI.
+     *
+     * @param classUri the URI of the class
+     * @return a collection of pairs containing instance URIs and their labels
+     */
     public Collection<Pair<String, String>> getInstanceUris(String classUri) {
         Collection<Pair<String, String>> instancesWithLabels = new ArrayList<>();
         Resource classResource = model.createResource(classUri);
@@ -72,8 +101,13 @@ public class InstanceFetcher {
             instancesWithLabels.add(new ImmutablePair<>(instanceUri, label));
         }
         return instancesWithLabels;
-    }    
+    }
 
+    /**
+     * Retrieves all classes and their instances along with the instance labels.
+     *
+     * @return a multimap containing class URIs as keys and pairs of instance URIs and labels as values
+     */
     public Multimap<String, Pair<String, String>> getClassAndInstanceUris() {
         Multimap<String, Pair<String, String>> classAndInstances = ArrayListMultimap.create();
         Collection<String> classUris = getClassUris();
@@ -100,7 +134,7 @@ public class InstanceFetcher {
         }
 
         InstanceFetcher fetcher = new InstanceFetcher(fileContents.toString(), fileExtension);
-  
+
         Collection<String> classUris = fetcher.getClassUris();
         System.out.println("Class URIs:");
         for (String uri : classUris) {
